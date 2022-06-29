@@ -52,8 +52,44 @@ for (let i=0; i<images.length; i++) {
 }
 
 // add class "active" in the first img-description element
-const imagesList = document.querySelectorAll('.img-description');
-let activeClass = 0;
-imagesList[activeClass].classList.add('active');
+const imgList = document.querySelectorAll('.img-description');
+let imgIndex = 0;
+imgList[imgIndex].classList.add('active');
 
-console.log(imagesList);
+
+// add eventListener on buttons
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
+
+console.log(imgList);
+console.log(imgIndex);
+
+nextBtn.addEventListener('click', function() {
+   imgList[imgIndex].classList.remove('active');
+
+   imgIndex++;
+
+   if (imgIndex === imgList.length) {
+      imgIndex = 0;
+   }
+
+   imgList[imgIndex].classList.add('active');
+
+   console.log(imgIndex)
+
+});
+
+prevBtn.addEventListener('click', function() {
+   imgList[imgIndex].classList.remove('active');
+
+   imgIndex--;
+
+   if (imgIndex < 0) {
+      imgIndex = imgList.length - 1;
+   }
+
+   imgList[imgIndex].classList.add('active');
+
+   console.log(imgIndex);
+
+});
