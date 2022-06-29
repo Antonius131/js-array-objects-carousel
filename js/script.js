@@ -35,13 +35,8 @@ const images = [
  *    - al click sui pulsanti "prev" e "next", visualizzarsi la prossima immagine, popolata con gli elementi degli oggetti
  */
 
-{/* <img class="active" src="https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg" alt="">
-<div id="description" class="px-5 py-4 position-absolute bottom-0 start-0 text-white">
-   <h2 class="title">Svezia</h2>
-   <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
-</div> */}
 
-
+// put object array in DOM
 const imgWrapper = document.getElementById('img-wrapper');
 
 for (let i=0; i<images.length; i++) {
@@ -54,8 +49,11 @@ for (let i=0; i<images.length; i++) {
                                  <p class="description">${arrayObject.description}</p>
                               </div>`
 
-   
-
 }
 
-console.log(carouselWrapper)
+// add class "active" in the first img-description element
+const imagesList = document.querySelectorAll('.img-description');
+let activeClass = 0;
+imagesList[activeClass].classList.add('active');
+
+console.log(imagesList);
